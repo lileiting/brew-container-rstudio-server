@@ -16,5 +16,4 @@ RUN curl -O https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022
 RUN gdebi -n rstudio-server-2022.07.1-554-amd64.deb
 RUN rm rstudio-server-2022.07.1-554-amd64.deb
 
-RUN usermod -a -G rstudio-server ltli
 USER linuxbrew
