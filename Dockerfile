@@ -1,9 +1,8 @@
-#FROM homebrew/brew:latest
-FROM centos:8
-#ENV HOMEBREW_NO_AUTO_UPDATE=1
-#RUN chmod -R o+rx /home/linuxbrew
+FROM homebrew/brew:latest
+ENV HOMEBREW_NO_AUTO_UPDATE=1
+RUN chmod -R o+rx /home/linuxbrew
 
-#USER root
+USER root
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
 
 RUN apt-get update -qq -y
@@ -17,4 +16,4 @@ RUN curl -O https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022
 RUN gdebi -n rstudio-server-2022.07.1-554-amd64.deb
 RUN rm rstudio-server-2022.07.1-554-amd64.deb
 
-#USER linuxbrew
+USER linuxbrew
